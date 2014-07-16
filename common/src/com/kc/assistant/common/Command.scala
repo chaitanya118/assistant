@@ -1,5 +1,7 @@
 package com.kc.assistant.common
 
-class Command {
+object Command extends Enumeration {
 
+    type Command = Value
+    val open, search = Value
 }
