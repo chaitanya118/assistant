@@ -16,18 +16,11 @@ object Delegator {
         	val command: Command.Value = Command.withName(input(0))
         	//execute activity
         	println("Executing " + command)
-        	getActivity(command).execute()
+        	Activity.getActivity(command).execute()
 
         }catch {
             case nse:NoSuchElementException => println("Invalid command")
         }
-    }
-    
-    
-    def getActivity(command: Command.Value): Activity = {
-        val activity: String =  Command.getActivityClass(command)
-
-       	Class.forName(activity).newInstance().asInstanceOf[Activity]
     }
 
 }
